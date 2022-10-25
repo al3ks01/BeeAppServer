@@ -19,5 +19,6 @@ public interface IUserService {
 
 	public List<User> findByUsername(String username);
 	
+	// nueva prueba
 	//prueba
 }
