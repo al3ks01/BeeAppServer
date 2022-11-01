@@ -30,6 +30,8 @@ public class User {
 	private String picture;
 	@NotNull
 	private String email;
+	@NotNull 
+	private String password;
 	
 	
 }
