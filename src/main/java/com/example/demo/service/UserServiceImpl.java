@@ -32,7 +32,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public Optional<User> findbyUid(String uid) {
+	public Optional<User> findByUid(String uid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
