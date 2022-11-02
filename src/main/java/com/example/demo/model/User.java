@@ -35,7 +35,7 @@ public class User implements Serializable{
 	//@NotNull
 	private String email;
 	//@NotNull 
-	private String password;
+	//private String password;
 	
 	@Singular
 	Set<String> contactUids;
