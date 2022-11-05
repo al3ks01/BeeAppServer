@@ -35,7 +35,7 @@ public class AppRestClient {
 	}
 	
 	
-	public static void insertarCliente ()
+	public static void insertUser ()
 	{
 		
 		String URLINSERT = URLBASE + "/insert";
