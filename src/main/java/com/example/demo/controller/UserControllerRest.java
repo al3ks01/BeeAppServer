@@ -49,8 +49,9 @@ public class UserControllerRest {
 		return new ResponseEntity<>(user, status);
 	}
 	
+	//Probablemente haya que cambiar el tipo de UID
 	@GetMapping("/consult/{uid}")
-	public ResponseEntity<User> getUser(@PathVariable("uid") String uid){
+	public ResponseEntity<User> getUser(@PathVariable("uid") Integer uid){
 		
 		ResponseEntity<User> response;
 		Optional<User> user;
@@ -80,9 +81,9 @@ public class UserControllerRest {
 		
 		return new ResponseEntity<>(user,status);
 	}
-	
+	//Probablemente haya que cambiar el tipo de UID
 	@DeleteMapping ("/delete/{uid}")
-	public ResponseEntity<String> deleteUser (@PathVariable String uid)
+	public ResponseEntity<String> deleteUser (@PathVariable Integer uid)
 	{
 		HttpStatus status = HttpStatus.OK;
 		
@@ -90,7 +91,7 @@ public class UserControllerRest {
 			status = HttpStatus.NOT_FOUND;
 		
 		
-		return new ResponseEntity<>(uid,status); 
+		return new ResponseEntity<>(uid.toString(),status); 
 		
 	}
 	

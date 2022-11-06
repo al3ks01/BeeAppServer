@@ -3,47 +3,71 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements IUserService {
+	@Autowired
+	private UserRepository daoUser;
 
 	@Override
-	public boolean insert(User cliente) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(User user) {
+		boolean exito = false;
+
+		// if (!daoUser.existsById(user.getUid())) {
+		daoUser.save(user);
+		exito = true;
+		// }
+
+		return exito;
 	}
 
 	@Override
-	public boolean update(User cliente) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(User user) {
+		boolean exito = false;
+
+		// if (daoUser.existsById(user.getUid())) {
+		daoUser.save(user);
+		exito = true;
+		// }
+
+		return exito;
 	}
 
+	//Probablemente haya que cambiar el tipo de UID
 	@Override
-	public boolean delete(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Integer uid) {
+		boolean exito = false;
+
+		if (daoUser.existsById(uid)) {
+			daoUser.deleteById(uid);
+			exito = true;
+		}
+
+		return exito;
 	}
 
 	@Override
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<User>) daoUser.findAll();
 	}
 
+	// Probablemente haya que cambiar el tipo de UID
 	@Override
-	public Optional<User> findByUid(String uid) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<User> findByUid(Integer uid) {
+
+		return daoUser.findById(uid);
 	}
 
 	@Override
 	public List<User> findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return daoUser.findByUsername(username);
 	}
 
 }

@@ -10,18 +10,19 @@ import com.example.demo.model.User;
 
 public interface IUserService {
 
-	public boolean insert(User cliente);
+	public boolean insert(User user);
 
-	public boolean update(User cliente);
+	public boolean update(User user);
 
-	public boolean delete(String id);
+	//Probablemente haya que cambiar el tipo de UID
+	public boolean delete(Integer uid);
 
 	public List<User> findAll();
 
-	public Optional<User> findByUid(String uid);
+	//Probablemente haya que cambiar el tipo de UID
+	public Optional<User> findByUid(Integer uid);
 
 	public List<User> findByUsername(String username);
 	
-	// nueva prueba
-	//prueba
+
 }

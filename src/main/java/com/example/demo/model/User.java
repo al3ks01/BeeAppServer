@@ -3,18 +3,25 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Set;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-//import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Singular;
 
 @Data
@@ -23,22 +30,28 @@ import lombok.Singular;
 @AllArgsConstructor
 @NoArgsConstructor
 
-//@Entity
+@Entity
 public class User implements Serializable{
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	private String uid;
-	//@NotNull
+
+	@EqualsAndHashCode.Include
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(length = 10)
+	private int uid;
+
+	@Column (length=30)
 	private String username;
 	//temporal
-	private String picture;
-	//@NotNull
+	//private String picture;
 	private String email;
-	//@NotNull 
-	//private String password;
+
+	@Column (length=30)
+	private String password;
 	
-	@Singular
-	Set<String> contactUids;
+	/*@Singular
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="FK_UID")
+	private Set<String> contactUids;*/
 	
 	
 	

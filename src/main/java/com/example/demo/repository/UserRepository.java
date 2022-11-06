@@ -2,11 +2,13 @@ package com.example.demo.repository;
 
 import java.util.List;
 
-//import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.model.User;
 
-//public interface UserRepository extends CrudRepository<User, String> {
-public interface UserRepository {
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
 	List<User> findByUsername(String username);
 }

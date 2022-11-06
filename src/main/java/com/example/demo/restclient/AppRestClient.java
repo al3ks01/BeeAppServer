@@ -48,36 +48,6 @@ public class AppRestClient {
 		
 		boolean valid;
 		
-		// Comprobación de clave no repetida
-		
-		/*do
-		{
-			valid = true;
-			leerCliente = new LeerCliente (new Cliente());
-			leerCliente.leerClave();
-			if (getCliente(leerCliente.getCliente().getNif()) != null)
-				valid = false;
-			if (!valid)
-				System.out.println("Cliente ya existente");
-		}while (!valid);
-		
-		// Leer el resto de los datos
-		readUser.leerRestoDatos();
-		
-		//user.getTelefonos().add(new Contacto("999","Movistar"));
-		
-		// Insertar entidad
-		try 
-		{
-			restTemplate.postForObject( URLINSERT, leerCliente.getCliente(), Cliente.class);
-	
-			System.out.println("cliente insertado correctamente");
-		
-		}
-		catch (HttpClientErrorException  e)
-		{
-			System.out.println("error, insertando cliente");
-		}*/
 		
 		
 	}

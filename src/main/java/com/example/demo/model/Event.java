@@ -10,7 +10,7 @@ import javax.persistence.Id;*/
 
 import lombok.Singular;
 
-public class Group {
+public class Event {
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private String gid;
