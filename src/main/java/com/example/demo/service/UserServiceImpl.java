@@ -38,7 +38,7 @@ public class UserServiceImpl implements IUserService {
 		return exito;
 	}
 
-	//Probablemente haya que cambiar el tipo de UID
+	// Probablemente haya que cambiar el tipo de UID
 	@Override
 	public boolean delete(Integer id) {
 		boolean exito = false;
