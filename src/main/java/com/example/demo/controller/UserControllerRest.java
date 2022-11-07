@@ -81,7 +81,7 @@ public class UserControllerRest {
 		
 		return new ResponseEntity<>(user,status);
 	}
-	//Probablemente haya que cambiar el tipo de UID
+	//Probablemente haya que cambiar el tipo de ID
 	@DeleteMapping ("/delete/{id}")
 	public ResponseEntity<String> deleteUser (@PathVariable Integer id)
 	{

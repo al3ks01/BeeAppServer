@@ -14,12 +14,12 @@ public interface IUserService {
 
 	public boolean update(User user);
 
-	//Probablemente haya que cambiar el tipo de UID
+	//Probablemente haya que cambiar el tipo de ID
 	public boolean delete(Integer id);
 
 	public List<User> findAll();
 
-	//Probablemente haya que cambiar el tipo de UID
+	//Probablemente haya que cambiar el tipo de ID
 	public Optional<User> findById(Integer id);
 
 	public Optional<User> findByUsername(String username);
