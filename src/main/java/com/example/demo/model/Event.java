@@ -40,6 +40,6 @@ public class Event {
 	private String description;
 	private String address;
 	private String location;
-	@Singular
-	private Set<String> users = new HashSet<>();
+	//@Singular
+	//private Set<String> users = new HashSet<>();
 }
