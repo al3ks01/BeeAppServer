@@ -96,20 +96,44 @@ public class UserControllerRest {
 	}
 	
 	@GetMapping ("/consultbyusername")
-	public ResponseEntity<List<User>> obtenerClientesPorNombre (@RequestParam String username)
+	public  ResponseEntity<User> getUserByUsername (@RequestParam String username)
 	{
-		ResponseEntity<List<User>> response;
-		List<User> users;
+		ResponseEntity<User> response;
+		Optional<User> user;
 		
 		System.out.println("recibido " + username);
 		
-		users = userService.findByUsername(username);
+		user = userService.findByUsername(username);
 		
+		if(user.isPresent()) {
+			response = new ResponseEntity<>(user.get(), HttpStatus.OK);
+		}else {
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 		
-		response = new ResponseEntity<>(users,HttpStatus.OK);
 		
 		
 		return response;
 	}
 	
+	@GetMapping ("/consultbyemail")
+	public  ResponseEntity<User> getUserByEmail (@RequestParam String email)
+	{
+		ResponseEntity<User> response;
+		Optional<User> user;
+		
+		System.out.println("recibido " + email);
+		
+		user = userService.findByEmail(email);
+		
+		if(user.isPresent()) {
+			response = new ResponseEntity<>(user.get(), HttpStatus.OK);
+		}else {
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		
+		
+		return response;
+	}
 }

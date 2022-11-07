@@ -22,7 +22,9 @@ public interface IUserService {
 	//Probablemente haya que cambiar el tipo de UID
 	public Optional<User> findById(Integer id);
 
-	public List<User> findByUsername(String username);
+	public Optional<User> findByUsername(String username);
+	
+	public Optional<User> findByEmail(String email);
 	
 
 }
