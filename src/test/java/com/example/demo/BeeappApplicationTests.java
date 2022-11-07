@@ -29,7 +29,7 @@ class BeeappApplicationTests {
 		List<User> users = userDao.findAll();
 		System.out.println(users);
 		for( User user : users) {
-			userDao.delete(user.getUid());
+			userDao.delete(user.getId());
 		}
 	}
 
