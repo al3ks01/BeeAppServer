@@ -40,11 +40,11 @@ public class UserServiceImpl implements IUserService {
 
 	//Probablemente haya que cambiar el tipo de UID
 	@Override
-	public boolean delete(Integer uid) {
+	public boolean delete(Integer id) {
 		boolean exito = false;
 
-		if (daoUser.existsById(uid)) {
-			daoUser.deleteById(uid);
+		if (daoUser.existsById(id)) {
+			daoUser.deleteById(id);
 			exito = true;
 		}
 
@@ -59,9 +59,9 @@ public class UserServiceImpl implements IUserService {
 
 	// Probablemente haya que cambiar el tipo de UID
 	@Override
-	public Optional<User> findByUid(Integer uid) {
+	public Optional<User> findById(Integer id) {
 
-		return daoUser.findById(uid);
+		return daoUser.findById(id);
 	}
 
 	@Override

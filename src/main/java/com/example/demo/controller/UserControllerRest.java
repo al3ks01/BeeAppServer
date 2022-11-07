@@ -50,13 +50,13 @@ public class UserControllerRest {
 	}
 	
 	//Probablemente haya que cambiar el tipo de UID
-	@GetMapping("/consult/{uid}")
-	public ResponseEntity<User> getUser(@PathVariable("uid") Integer uid){
+	@GetMapping("/consult/{id}")
+	public ResponseEntity<User> getUser(@PathVariable("id") Integer id){
 		
 		ResponseEntity<User> response;
 		Optional<User> user;
 		
-		user = userService.findByUid(uid);
+		user = userService.findById(id);
 		
 		if(user.isPresent()) {
 			response = new ResponseEntity<>(user.get(), HttpStatus.OK);
@@ -82,16 +82,16 @@ public class UserControllerRest {
 		return new ResponseEntity<>(user,status);
 	}
 	//Probablemente haya que cambiar el tipo de UID
-	@DeleteMapping ("/delete/{uid}")
-	public ResponseEntity<String> deleteUser (@PathVariable Integer uid)
+	@DeleteMapping ("/delete/{id}")
+	public ResponseEntity<String> deleteUser (@PathVariable Integer id)
 	{
 		HttpStatus status = HttpStatus.OK;
 		
-		if (!userService.delete(uid))
+		if (!userService.delete(id))
 			status = HttpStatus.NOT_FOUND;
 		
 		
-		return new ResponseEntity<>(uid.toString(),status); 
+		return new ResponseEntity<>(id.toString(),status); 
 		
 	}
 	
