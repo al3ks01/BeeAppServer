@@ -30,17 +30,19 @@ public class UserServiceImpl implements IUserService {
 	public boolean update(User user) {
 		boolean exito = false;
 
-		// if (daoUser.existsById(user.getUid())) {
-		daoUser.save(user);
-		exito = true;
-		// }
+		
+		
+		if (daoUser.existsById(user.getId())) {
+			daoUser.save(user);
+			exito = true;
+		}
 
 		return exito;
 	}
 
 	// Probablemente haya que cambiar el tipo de UID
 	@Override
-	public boolean delete(Integer id) {
+	public boolean delete(String id) {
 		boolean exito = false;
 
 		if (daoUser.existsById(id)) {
@@ -59,7 +61,7 @@ public class UserServiceImpl implements IUserService {
 
 	// Probablemente haya que cambiar el tipo de UID
 	@Override
-	public Optional<User> findById(Integer id) {
+	public Optional<User> findById(String id) {
 
 		return daoUser.findById(id);
 	}
@@ -72,7 +74,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public Optional<User> findByEmail(String email) {
-		
+
 		return daoUser.findByEmail(email);
 	}
 

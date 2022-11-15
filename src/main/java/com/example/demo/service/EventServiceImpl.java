@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Event;
 import com.example.demo.repository.EventRepository;
-
+@Service
 public class EventServiceImpl implements IEventService {
 
 	@Autowired
@@ -38,7 +39,7 @@ public class EventServiceImpl implements IEventService {
 	}
 
 	@Override
-	public boolean delete(Integer id) {
+	public boolean delete(String id) {
 		boolean success = false;
 
 		if (daoEvent.existsById(id)) {
@@ -55,7 +56,7 @@ public class EventServiceImpl implements IEventService {
 	}
 
 	@Override
-	public Optional<Event> findById(Integer id) {
+	public Optional<Event> findById(String id) {
 		return daoEvent.findById(id);
 	}
 

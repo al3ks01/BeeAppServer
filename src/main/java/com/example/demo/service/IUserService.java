@@ -3,7 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
+
 
 import com.example.demo.model.User;
 
@@ -15,12 +15,12 @@ public interface IUserService {
 	public boolean update(User user);
 
 	//Probablemente haya que cambiar el tipo de ID
-	public boolean delete(Integer id);
+	public boolean delete(String id);
 
 	public List<User> findAll();
 
 	//Probablemente haya que cambiar el tipo de ID
-	public Optional<User> findById(Integer id);
+	public Optional<User> findById(String id);
 
 	public Optional<User> findByUsername(String username);
 	

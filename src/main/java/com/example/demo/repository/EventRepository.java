@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Event;
 
 @Repository
-public interface EventRepository extends CrudRepository<Event, Integer> {
+public interface EventRepository extends CrudRepository<Event, String> {
 	List<Event> findByName(String name);
 }

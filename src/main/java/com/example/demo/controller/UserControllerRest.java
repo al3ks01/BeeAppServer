@@ -38,6 +38,8 @@ public class UserControllerRest {
 	@PostMapping("/insert")
 	public ResponseEntity<User> insertUser(@Valid @RequestBody User user){
 		
+		System.out.println("Usuario recibido " + user.toString());
+		
 		HttpStatus status = HttpStatus.CREATED;
 		
 		
@@ -51,7 +53,7 @@ public class UserControllerRest {
 	
 	//Probablemente haya que cambiar el tipo de UID
 	@GetMapping("/consult/{id}")
-	public ResponseEntity<User> getUser(@PathVariable("id") Integer id){
+	public ResponseEntity<User> getUser(@PathVariable("id") String id){
 		
 		ResponseEntity<User> response;
 		Optional<User> user;
@@ -72,6 +74,7 @@ public class UserControllerRest {
 	@PutMapping ("/update")
 	public ResponseEntity<User> updateUser (@Valid @RequestBody User user)
 	{
+		System.out.println("Usuario recibido: "+user.toString());
 		
 		HttpStatus status = HttpStatus.ACCEPTED;
 		
@@ -83,7 +86,7 @@ public class UserControllerRest {
 	}
 	//Probablemente haya que cambiar el tipo de ID
 	@DeleteMapping ("/delete/{id}")
-	public ResponseEntity<String> deleteUser (@PathVariable Integer id)
+	public ResponseEntity<String> deleteUser (@PathVariable String id)
 	{
 		HttpStatus status = HttpStatus.OK;
 		
