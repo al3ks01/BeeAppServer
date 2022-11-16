@@ -2,10 +2,10 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Event {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@EqualsAndHashCode.Include
 	private int id;
 	private String name;
 	private LocalDate date;
@@ -33,5 +34,6 @@ public class Event {
 	private String address;
 	private String location;
 	//@Singular
-	//private Set<String> users = new HashSet<>();
+	
+	//private Set<String> attendees = new HashSet<>();
 }
