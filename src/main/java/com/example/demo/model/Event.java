@@ -24,12 +24,10 @@ import lombok.Singular;
 @Entity
 public class Event {
 	@Id
-<<<<<<< HEAD
 	@EqualsAndHashCode.Include
-	private int id;
-=======
+
 	private String id;
->>>>>>> 7c8c2c13a31a8b2db872db1f2937dcdf4091c4c0
+
 	private String name;
 	private LocalDate date;
 	private LocalTime time;
