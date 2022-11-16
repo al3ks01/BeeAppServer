@@ -25,9 +25,8 @@ public class User implements Serializable {
 
 	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(length = 10)
-	private int id;
+
+	private String id;
 
 	@Column(length = 30)
 	private String username;

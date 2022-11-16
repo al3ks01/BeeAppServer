@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Event;
 import com.example.demo.repository.EventRepository;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c8c2c13a31a8b2db872db1f2937dcdf4091c4c0
 @Service
 public class EventServiceImpl implements IEventService {
 
@@ -40,7 +43,7 @@ public class EventServiceImpl implements IEventService {
 	}
 
 	@Override
-	public boolean delete(Integer id) {
+	public boolean delete(String id) {
 		boolean success = false;
 
 		if (daoEvent.existsById(id)) {
@@ -57,7 +60,7 @@ public class EventServiceImpl implements IEventService {
 	}
 
 	@Override
-	public Optional<Event> findById(Integer id) {
+	public Optional<Event> findById(String id) {
 		return daoEvent.findById(id);
 	}
 

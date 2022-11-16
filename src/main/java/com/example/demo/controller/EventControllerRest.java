@@ -49,7 +49,7 @@ public class EventControllerRest {
 	}
 
 	@GetMapping("/consult/{id}")
-	public ResponseEntity<Event> getEvent(@PathVariable("id") Integer id) {
+	public ResponseEntity<Event> getEvent(@PathVariable("id") String id) {
 
 		ResponseEntity<Event> response;
 		Optional<Event> event;
@@ -77,7 +77,7 @@ public class EventControllerRest {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteEvent(@PathVariable Integer id) {
+	public ResponseEntity<String> deleteEvent(@PathVariable String id) {
 		HttpStatus status = HttpStatus.OK;
 
 		if (!eventService.delete(id))
