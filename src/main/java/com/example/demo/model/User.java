@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -42,15 +43,14 @@ public class User {
 	@Column(length = 12)
 	private String phone;
 
-	@Column(columnDefinition="BLOB")
+	@Column(columnDefinition="MEDIUMBLOB")
 	@Lob
 	private Byte[] picture;
 	@Column(length = 120)
 	private String mood;
 
-	/*@Singular
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "FK_ID")
-	private Set<String> contactUids;*/
+	@Singular
+	@ElementCollection
+	private Set<String> contacts;
 
 }
