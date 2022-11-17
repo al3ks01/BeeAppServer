@@ -25,9 +25,8 @@ public class User implements Serializable {
 
 	@EqualsAndHashCode.Include
 	@Id
-
 	private String id;
-
+	
 	@Column(length = 30)
 	private String username;
 	@Column(length = 60)
