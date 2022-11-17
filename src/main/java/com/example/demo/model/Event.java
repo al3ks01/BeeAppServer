@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -32,6 +33,6 @@ public class Event {
 	private String description;
 	private String address;
 	private String location;
-	@Singular
-	private Set<String> attendees;
+	//@Singular
+	//private Set<String> attendees = new HashSet<>();
 }
