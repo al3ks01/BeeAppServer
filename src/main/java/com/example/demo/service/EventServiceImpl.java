@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Event;
 import com.example.demo.repository.EventRepository;
-<<<<<<< HEAD
 
-=======
->>>>>>> 7c8c2c13a31a8b2db872db1f2937dcdf4091c4c0
 @Service
 public class EventServiceImpl implements IEventService {
 

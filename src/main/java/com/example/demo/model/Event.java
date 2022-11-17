@@ -22,7 +22,13 @@ import lombok.NoArgsConstructor;
 public class Event {
 	@Id
 	@EqualsAndHashCode.Include
+<<<<<<< HEAD
 	private String id;
+=======
+
+	private String id;
+
+>>>>>>> c4ede6ec726b3dbb365958f7605f8b4265362a6b
 	private String name;
 	private LocalDate date;
 	private LocalTime time;
