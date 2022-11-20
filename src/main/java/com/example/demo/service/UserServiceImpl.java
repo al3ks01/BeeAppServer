@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,6 +77,16 @@ public class UserServiceImpl implements IUserService {
 	public Optional<User> findByEmail(String email) {
 
 		return daoUser.findByEmail(email);
+	}
+
+	@Override
+	public List<User> searchUsers(String username) {
+		
+		//List<User> users = new ArrayList<User>();
+		
+		List<User> users = daoUser.findByUsernameContaining(username);
+		
+		return users;
 	}
 
 }

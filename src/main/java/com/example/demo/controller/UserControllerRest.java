@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -112,6 +113,25 @@ public class UserControllerRest {
 			response = new ResponseEntity<>(user.get(), HttpStatus.OK);
 		}else {
 			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		
+		
+		return response;
+	}
+	
+	@GetMapping("/searchusers")
+	public ResponseEntity<List<User>> searchUsers (@RequestParam String username)
+	{
+		ResponseEntity<List<User>> response;
+		
+		List<User> users = userService.searchUsers(username);
+		System.out.println("ususarios encontrados: "+users.toString());
+		
+		if(users.isEmpty()) {
+			response = new ResponseEntity<>(users,HttpStatus.NOT_FOUND);
+		}else {
+			response = new ResponseEntity<>(users,HttpStatus.OK);
 		}
 		
 		

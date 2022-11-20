@@ -53,4 +53,11 @@ public class User {
 	@ElementCollection
 	private Set<String> contacts;
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", phone="
+				+ phone + ", mood=" + mood + ", contacts=" + contacts + "]";
+	}
+
+	
 }
