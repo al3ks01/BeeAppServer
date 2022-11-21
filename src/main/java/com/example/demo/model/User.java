@@ -1,16 +1,14 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +24,7 @@ import lombok.Singular;
 @NoArgsConstructor
 
 @Entity
-public class User {
+public class User implements Serializable{
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -50,9 +48,8 @@ public class User {
 	private String mood;
 
 	@Singular
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="FK_ID")
-	private Set<Contact> contacts;
+	@ElementCollection
+	private Set<String> contacts;
 
 	@Override
 	public String toString() {
