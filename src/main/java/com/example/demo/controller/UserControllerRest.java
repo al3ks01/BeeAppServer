@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -87,7 +87,7 @@ public class UserControllerRest {
 	}
 	//Probablemente haya que cambiar el tipo de ID
 	@DeleteMapping ("/delete/{id}")
-	public ResponseEntity<String> deleteUser (@PathVariable String id)
+	public ResponseEntity<String> deleteUser (@PathVariable("id") String id)
 	{
 		HttpStatus status = HttpStatus.OK;
 		
@@ -136,6 +136,22 @@ public class UserControllerRest {
 		
 		
 		
+		return response;
+	}
+	
+	
+	@GetMapping("/getcontacts")
+	public ResponseEntity<List<User>> findContacts (@RequestParam Set<String> userIds){
+		
+		ResponseEntity<List<User>> response;
+		
+		List<User> contacts = userService.findContacts(userIds);
+		
+		if(contacts.isEmpty()) {
+			response = new ResponseEntity<>(contacts,HttpStatus.NOT_FOUND);
+		}else {
+			response = new ResponseEntity<>(contacts,HttpStatus.OK);
+		}
 		return response;
 	}
 	

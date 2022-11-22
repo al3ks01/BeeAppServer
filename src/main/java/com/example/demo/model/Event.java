@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -22,7 +23,7 @@ import lombok.Singular;
 @NoArgsConstructor
 
 @Entity
-public class Event {
+public class Event implements Serializable{
 	@Id
 	@EqualsAndHashCode.Include
 	private String id;

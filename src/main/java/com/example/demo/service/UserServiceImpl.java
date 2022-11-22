@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,6 +88,17 @@ public class UserServiceImpl implements IUserService {
 		List<User> users = daoUser.findByUsernameContaining(username);
 		
 		return users;
+	}
+
+	@Override
+	public List<User> findContacts(Set<String> contactsId) {
+		
+		List<User> contacts =new ArrayList<User>();
+		
+		daoUser.findAllById(contactsId).forEach(u -> contacts.add(u));;
+		
+		
+		return contacts;
 	}
 
 }
