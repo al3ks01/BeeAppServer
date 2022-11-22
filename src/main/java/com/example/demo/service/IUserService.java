@@ -2,8 +2,7 @@ package com.example.demo.service;
 
 import java.util.List;
 import java.util.Optional;
-
-
+import java.util.Set;
 
 import com.example.demo.model.User;
 
@@ -27,6 +26,8 @@ public interface IUserService {
 	public Optional<User> findByUsername(String username);
 	
 	public Optional<User> findByEmail(String email);
+	
+	public List<User> findContacts(Set<String> contactsId);
 	
 
 }

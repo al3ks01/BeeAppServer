@@ -1,26 +1,34 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-import lombok.Singular;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+
+@Entity
 public class Chat implements Serializable{
 
 	@Id
-	private String id;
+	private String chatId;
 	
-	private String userId1;
+	@ElementCollection
+	private Set<String> users;
 	
-	
-	private String userId2;
-	
-	@Singular
-	@OneToMany
-	private List<Message> messages;
-	
+	@ElementCollection
+	private Set<String> messages;
 	
 }
