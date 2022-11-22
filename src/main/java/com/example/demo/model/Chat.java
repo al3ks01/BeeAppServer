@@ -3,9 +3,12 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Chat implements Serializable{
 
 	@Id
-	private String chatId;
+	private String id;
 	
 	@ElementCollection
 	private Set<String> users;

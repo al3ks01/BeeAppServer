@@ -31,7 +31,7 @@ public class ChatServiceImpl implements IChatService {
 
 		boolean exito = false;
 
-		if (daoChat.existsById(chat.getChatId())) {
+		if (daoChat.existsById(chat.getId())) {
 			daoChat.save(chat);
 			exito = true;
 		}
@@ -65,10 +65,14 @@ public class ChatServiceImpl implements IChatService {
 	}
 
 	@Override
-	public List<Chat> findAllChatsFromUser(String userId) {
+	public List<String> findAllChatsFromUser(String userId) {
 
 		
-		return daoChat.findAllChatsFromUser(userId);
+		List<String> ids = daoChat.findAllChatsFromUser(userId);
+		
+		System.out.println("chats desde Service: "+ids);
+		
+		return ids;
 	}
 
 }

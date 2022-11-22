@@ -11,12 +11,12 @@ public interface IEventService {
 
 	public boolean update(Event event);
 
-	//Probablemente haya que cambiar el tipo de ID
+
 	public boolean delete(String id);
 
 	public List<Event> findAll();
 
-	//Probablemente haya que cambiar el tipo de ID
+
 	public Optional<Event> findById(String id);
 
 	public List<Event> findByName(String name);

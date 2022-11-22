@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Chat;
-import com.example.demo.model.User;
 import com.example.demo.service.IChatService;
 
 @RestController
@@ -97,10 +97,14 @@ public class ChatControllerRest {
 		return new ResponseEntity<>(id.toString(),status); 
 	}
 	
-	@GetMapping("findallchats/{userid}")
-	public ResponseEntity<List<Chat>> findAllChatsFromUser(@PathVariable("userid") String userId){
+	@GetMapping("findallchats")
+	public ResponseEntity<List<String>> findAllChatsFromUser(@RequestParam("userId") String userId){
 		
-		return new ResponseEntity<>(chatService.findAllChatsFromUser(userId), HttpStatus.OK);
+		List<String> chatsId = chatService.findAllChatsFromUser(userId);
+		
+		System.out.println("chats: "+chatsId);
+		
+		return new ResponseEntity<>(chatsId, HttpStatus.OK);
 		
 	}
 	
