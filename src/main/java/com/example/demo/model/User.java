@@ -50,14 +50,13 @@ public class User {
 	private String mood;
 
 	@Singular
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="FK_ID")
-	private Set<Contact> contacts;
+	@ElementCollection
+	private Set<String> contacts;
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", phone="
-				+ phone + ", mood=" + mood+"]";
+				+ phone + ", mood=" + mood + ", contacts=" + contacts + "]";
 	}
 
 	
