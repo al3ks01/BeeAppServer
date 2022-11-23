@@ -97,12 +97,13 @@ public class ChatControllerRest {
 		return new ResponseEntity<>(id.toString(),status); 
 	}
 	
+	
 	@GetMapping("findallchats")
 	public ResponseEntity<List<String>> findAllChatsFromUser(@RequestParam("userId") String userId){
 		
 		List<String> chatsId = chatService.findAllChatsFromUser(userId);
 		
-		System.out.println("chats: "+chatsId);
+		System.out.println("chats: " + chatsId);
 		
 		return new ResponseEntity<>(chatsId, HttpStatus.OK);
 		
