@@ -105,7 +105,6 @@ public class ChatControllerRest {
 		
 		System.out.println("chats: " + chatsId);
 		
-		
 		return new ResponseEntity<>(chatsId, HttpStatus.OK);
 		
 	}
