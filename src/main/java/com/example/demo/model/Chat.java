@@ -3,12 +3,8 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,16 +18,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
+@Document(value="Chat")
 public class Chat implements Serializable{
 
 	@Id
 	private String id;
 	
-	@ElementCollection
+	//@ElementCollection
 	private Set<String> users;
 	
-	@ElementCollection
+	//@ElementCollection
 	private Set<String> messages;
 	
 }

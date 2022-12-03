@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.model.Chat;
-import com.example.demo.model.Event;
 
 
 public interface IChatService {
@@ -20,5 +19,5 @@ public interface IChatService {
 
 	public Optional<Chat> findById(String id);
 
-	public List<String> findAllChatsFromUser(String userId);
+	public List<Chat> findAllChatsFromUser(String userId);
 }

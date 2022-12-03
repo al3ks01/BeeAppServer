@@ -3,18 +3,15 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Singular;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,7 +19,7 @@ import lombok.Singular;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
+@Document(value="Event")
 public class Event implements Serializable{
 	@Id
 	@EqualsAndHashCode.Include

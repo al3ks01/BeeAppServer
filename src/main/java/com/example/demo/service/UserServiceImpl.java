@@ -80,10 +80,9 @@ public class UserServiceImpl implements IUserService {
 		return daoUser.findByEmail(email);
 	}
 
-	@Override
+	 @Override
 	public List<User> searchUsers(String username) {
 		
-		//List<User> users = new ArrayList<User>();
 		
 		List<User> users = daoUser.findByUsernameContaining(username);
 		

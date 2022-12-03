@@ -65,14 +65,14 @@ public class ChatServiceImpl implements IChatService {
 	}
 
 	@Override
-	public List<String> findAllChatsFromUser(String userId) {
+	public List<Chat> findAllChatsFromUser(String userId) {
 
 		
-		List<String> ids = daoChat.findAllChatsFromUser(userId);
+		List<Chat> chats = daoChat.findAllChatsFromUser(userId);
 		
-		System.out.println("chats desde Service: "+ids);
+		System.out.println("chats desde Service: "+chats);
 		
-		return ids;
+		return chats;
 	}
 
 }

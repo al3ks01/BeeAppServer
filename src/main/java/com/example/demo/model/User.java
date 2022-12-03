@@ -3,12 +3,12 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
+//import javax.persistence.Column;
+//import javax.persistence.ElementCollection;
+//import javax.persistence.Lob;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,32 +23,32 @@ import lombok.Singular;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
+@Document(value="User")
 public class User implements Serializable{
 
 	@EqualsAndHashCode.Include
 	@Id
 	private String id;
 
-	@Column(length = 30)
+	//@Column(length = 30)
 	private String username;
-	@Column(length = 60)
+	//@Column(length = 60)
 	private String email;
-	@Column(length = 30)
+	//@Column(length = 30)
 	private String password;
 
 	// longitud máxima de un teléfono con prefijo de 3 dígitos
-	@Column(length = 12)
+	//@Column(length = 12)
 	private String phone;
 
-	@Column(columnDefinition="MEDIUMBLOB")
-	@Lob
+	//@Column(columnDefinition="MEDIUMBLOB")
+	//@Lob
 	private Byte[] picture;
-	@Column(length = 120)
+	//@Column(length = 120)
 	private String mood;
 
 	@Singular
-	@ElementCollection
+	//@ElementCollection
 	private Set<String> contacts;
 
 	@Override
