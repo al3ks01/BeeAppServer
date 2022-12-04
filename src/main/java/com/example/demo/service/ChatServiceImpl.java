@@ -58,12 +58,14 @@ public class ChatServiceImpl implements IChatService {
 		return (List<Chat>) daoChat.findAll();
 	}
 
+	//Encontrar 1 chat por id de chat
 	@Override
 	public Optional<Chat> findById(String id) {
 
 		return daoChat.findById(id);
 	}
 
+	//Encontrar todos los chats de un user por id del user
 	@Override
 	public List<Chat> findAllChatsFromUser(String userId) {
 
@@ -74,5 +76,13 @@ public class ChatServiceImpl implements IChatService {
 		
 		return chats;
 	}
+	
+	//Encontrar 1 chat entre 2 usuarios por el id de ambos
+	public  Optional<Chat> findChat(String id1, String id2){
+		
+		return daoChat.findChatByParticipants(id1, id2);
+		
+	}
+	
 
 }
