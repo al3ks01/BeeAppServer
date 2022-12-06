@@ -11,6 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -28,6 +29,12 @@ public class Chat implements Serializable{
 	private Set<String> users;
 	
 	//@ElementCollection
-	private Set<String> messages;
 	
+	private Set<Message> messages;
+	
+	
+	public void addMessage(Message message) {
+		
+		messages.add(message);
+	}
 }

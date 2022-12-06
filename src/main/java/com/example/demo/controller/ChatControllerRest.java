@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class ChatControllerRest {
 
 @Autowired IChatService chatService;
 
-@Autowired private SimpMessagingTemplate simpMessagingTemplate;
+
 
 	@GetMapping("/consult")
 	public ResponseEntity<List<Chat>> getChats(){
@@ -114,8 +115,8 @@ public class ChatControllerRest {
 		return new ResponseEntity<>(chats, HttpStatus.OK);
 		
 	}
-	 
-	 public  ResponseEntity<Chat> findChat(String id1, String id2){
+	 @GetMapping("findchat")
+	 public  ResponseEntity<Chat> findChat(@RequestParam("id1") String id1, @RequestParam("id2") String id2){
 		 
 		 ResponseEntity<Chat> response;
 			Optional<Chat> chat;
@@ -136,28 +137,7 @@ public class ChatControllerRest {
 	 }
 	 
 	 
-	 @MessageMapping("/private-message")
-	 public Message receivePrivateMessage(@Payload Message message) {
-		 
-		simpMessagingTemplate.convertAndSendToUser(message.getReceiverId(),"/private",message);
-		
-		return message;
-	 }
+	 
 	
-	 /*@MessageMapping("/chat")
-	    public void processMessage(@Payload Message Message) {
-	        var chatId = chatRoomService
-	                .getChatId(chatMessage.getSenderId(), chatMessage.getRecipientId(), true);
-	        chatMessage.setChatId(chatId.get());
-
-	        ChatMessage saved = chatMessageService.save(chatMessage);
-	        
-	        messagingTemplate.convertAndSendToUser(
-	                chatMessage.getRecipientId(),"/queue/messages",
-	                new ChatNotification(
-	                        saved.getId(),
-	                        saved.getSenderId(),
-	                        saved.getSenderName()));
-	    }
-	}*/
+	 
 }

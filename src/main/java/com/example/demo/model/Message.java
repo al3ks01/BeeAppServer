@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Document(value="Message")
+//@Document(value="Message")
 public class Message implements Serializable {
 
 	@Id
