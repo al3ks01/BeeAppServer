@@ -12,7 +12,7 @@ import com.example.demo.model.Chat;
 import com.example.demo.model.Message;
 import com.example.demo.service.IChatService;
 
-@RestController
+//@RestController
 public class ChatMessageController {
 
 	@Autowired private SimpMessagingTemplate simpMessagingTemplate;

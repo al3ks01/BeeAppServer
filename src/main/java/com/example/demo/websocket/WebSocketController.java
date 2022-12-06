@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Message;
 
-@RestController
-@RequestMapping("/ws")
+//@RestController
+//@RequestMapping("/ws")
 public class WebSocketController {
 
 	@Autowired ServerWebSocket webSocketProcess;

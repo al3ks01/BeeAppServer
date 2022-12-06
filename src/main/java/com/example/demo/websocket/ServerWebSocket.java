@@ -20,10 +20,10 @@ import com.example.demo.model.Message;
 
 import lombok.extern.slf4j.Slf4j;
 
-@ApplicationScope
+/*@ApplicationScope
 @ServerEndpoint(value="/connection/{userId}")
 @Slf4j
-@Component
+@Component*/
 public class ServerWebSocket {
 
 	private ConcurrentHashMap<String, ServerWebSocket> concurrentHashMap = new ConcurrentHashMap<>();
@@ -35,7 +35,7 @@ public class ServerWebSocket {
 
 		this.session = session;
 
-		log.info("Session opened for user: " + userId);
+	//	log.info("Session opened for user: " + userId);
 
 		concurrentHashMap.put(userId, this);
 	}
@@ -43,7 +43,7 @@ public class ServerWebSocket {
 	@OnMessage
 	public void onMessage(Message message, Session session) {
 
-		log.info("session: " + session + "message: " + message);
+		//log.info("session: " + session + "message: " + message);
 	}
 
 	@OnClose
@@ -56,7 +56,7 @@ public class ServerWebSocket {
 
 	@OnError
 	public void onError(Session session, Throwable error) {
-		log.info("Error in websocket " + error);
+		//log.info("Error in websocket " + error);
 	}
 
 	public void sendMessage(String userId, Message message) {
@@ -71,10 +71,10 @@ public class ServerWebSocket {
 					e.printStackTrace();
 				}
 			}else {
-				log.info("Session isnt open");
+			//	log.info("Session isnt open");
 			}
 		}else {
-			log.info("Session doesnt exist");
+		//	log.info("Session doesnt exist");
 		}
 
 		try {
