@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
     /**
-     * Before websocket handshake
-     * You can put some data into {@code attributes} here, and get it in WebSocketHandler's session
+     * Antes del  websocket handshake
+     * Por si queremos añadir algo de datos a los atributos
      */
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
@@ -28,7 +28,7 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
     }
 
     /**
-     * After websocket handshake
+     * Despues del websocket handshake
      */
     @Override
     public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception ex) {
