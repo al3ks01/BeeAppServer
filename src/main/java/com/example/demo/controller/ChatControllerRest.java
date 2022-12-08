@@ -74,6 +74,7 @@ public class ChatControllerRest {
 
 	}
 
+	//me parece que ya no lo uso
 	@PutMapping("/update")
 	public ResponseEntity<Chat> updateChat(@Valid @RequestBody Chat chat) {
 		System.out.println("Chat recibido: " + chat.toString());
@@ -95,7 +96,8 @@ public class ChatControllerRest {
 
 		return new ResponseEntity<>(id.toString(), status);
 	}
-
+	
+	//me parece que ya no lo uso
 	@GetMapping("findallchats")
 	public ResponseEntity<List<Chat>> findAllChatsFromUser(@RequestParam("userId") String userId) {
 
@@ -124,7 +126,7 @@ public class ChatControllerRest {
 		return response;
 
 	}
-	
+	//me parece que ya no lo uso
 	@GetMapping("getmessages")
 	public ResponseEntity<List<Message>> getMessages(@RequestParam("chat") Chat chat){
 		

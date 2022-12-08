@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -30,11 +31,19 @@ public class Chat implements Serializable{
 	
 	//@ElementCollection
 	
-	private List<Message> messages;
+	private List<Message> messages=new ArrayList<>();
 	
 	
 	public void addMessage(Message message) {
 		
 		messages.add(message);
+	}
+	
+	
+	public Chat(Chat chat){
+		this.id = chat.id;
+		this.users = chat.users;
+		this.messages = chat.messages;
+		
 	}
 }

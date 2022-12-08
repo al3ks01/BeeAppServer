@@ -21,12 +21,11 @@ import lombok.NoArgsConstructor;
 //@Document(value="Message")
 public class Message implements Serializable {
 
-	@Id
-	private String msgId;
 	
 	private String senderId;
 	
 	private String receiverId;
 	
 	private String body;
+	
 }

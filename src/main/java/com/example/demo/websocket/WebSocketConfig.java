@@ -13,28 +13,29 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 
 @Configuration
-//@EnableWebSocketMessageBroker
-@EnableWebSocket
-//public class WebSocketConfig implements WebSocketMessageBrokerConfigurer, WebSocketConfigurer {
-public class WebSocketConfig implements  WebSocketConfigurer {
+@EnableWebSocketMessageBroker
+//@EnableWebSocket
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+//public class WebSocketConfig implements  WebSocketConfigurer {
 	
-	private final static String CHAT_ENDPONIT = "/privatechat";
+
 	
-	/*@Override
+	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 
-		registry.addEndpoint("/ws").setAllowedOriginPatterns("*").withSockJS();
-	}*/
-
-/*	@Override
-	public void configureMessageBroker(MessageBrokerRegistry registry) {
-		
-		registry.setApplicationDestinationPrefixes("/beeapp");
-		registry.enableSimpleBroker("/chat", "/user");
-		registry.setUserDestinationPrefix("/user");
-	}*/
+		//registry.addEndpoint("/beeapp").setAllowedOriginPatterns("*").withSockJS();
+		registry.addEndpoint("/beeapp").addInterceptors(new HandshakeInterceptor()).withSockJS();
+	}
 
 	@Override
+	public void configureMessageBroker(MessageBrokerRegistry registry) {
+		
+		//registry.setApplicationDestinationPrefixes("/app");
+		registry.enableSimpleBroker("g","/user");
+		registry.setUserDestinationPrefix("/user");
+	}
+
+	/*@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 		registry.addHandler(getChatWebSocketHandler(), CHAT_ENDPONIT).setAllowedOrigins("*");
 		
@@ -43,7 +44,7 @@ public class WebSocketConfig implements  WebSocketConfigurer {
 	@Bean
 	public WebSocketHandler getChatWebSocketHandler() {
 		return new ChatWebSocketHandler();
-	}
+	}*/
 
 	/*@Override
 	public boolean configureMessageConverters(List<MessageConverter> messageConverters) {
