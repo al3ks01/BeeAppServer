@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Chat;
 import com.example.demo.model.Event;
 import com.example.demo.service.IEventService;
 
@@ -104,4 +105,16 @@ public class EventControllerRest {
 
 		return response;
 	}
+	
+	@GetMapping("findallevents")
+	public ResponseEntity<List<Event>> findAllEventsFromUser(@RequestParam("userId") String userId) {
+
+		List<Event> events = eventService.findAllEventsFromUser(userId);
+
+		System.out.println("events: " + events);
+
+		return new ResponseEntity<>(events, HttpStatus.OK);
+
+	}
+	
 }

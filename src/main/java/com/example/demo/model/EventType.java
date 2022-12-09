@@ -1,5 +1,5 @@
 package com.example.demo.model;
 
-public enum Type {
+public enum EventType {
 	LEISURE, BUSINESS, FAMILY, SPORTS
 }

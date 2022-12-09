@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.model.Chat;
 import com.example.demo.model.Event;
 
 public interface IEventService {
@@ -20,4 +21,6 @@ public interface IEventService {
 	public Optional<Event> findById(String id);
 
 	public List<Event> findByName(String name);
+	
+	public List<Event> findAllEventsFromUser(String userId);
 }

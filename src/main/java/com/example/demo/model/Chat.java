@@ -26,10 +26,9 @@ public class Chat implements Serializable{
 	@Id
 	private String id;
 	
-	//@ElementCollection
+	private ChatType type;
+
 	private Set<String> users;
-	
-	//@ElementCollection
 	
 	private List<Message> messages=new ArrayList<>();
 	
@@ -44,6 +43,7 @@ public class Chat implements Serializable{
 		this.id = chat.id;
 		this.users = chat.users;
 		this.messages = chat.messages;
+		this.type = chat.type;
 		
 	}
 }

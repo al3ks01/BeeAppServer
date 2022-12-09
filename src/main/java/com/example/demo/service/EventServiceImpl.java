@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Chat;
 import com.example.demo.model.Event;
 import com.example.demo.repository.EventRepository;
 
@@ -64,6 +65,11 @@ public class EventServiceImpl implements IEventService {
 	@Override
 	public List<Event> findByName(String name) {
 		return daoEvent.findByName(name);
+	}
+
+	@Override
+	public List<Event> findAllEventsFromUser(String userId) {
+		return daoEvent.findAllChatsFromUser(userId);
 	}
 
 }
