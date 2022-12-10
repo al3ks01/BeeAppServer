@@ -3,7 +3,7 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
@@ -31,8 +31,8 @@ public class Event implements Serializable{
 	private String description;
 	@Singular
 	private Set<String> attendees;
-	private LocalDate date;
-	private LocalTime time;
+	private String date;
+	private String time;
 	
 	//En que momento pones location y address??
 	//private String address;
@@ -40,4 +40,8 @@ public class Event implements Serializable{
 
 	
 	private EventType type;
+	
+	private String chatId;
+	
+	private List<Expense> expenses;
 }

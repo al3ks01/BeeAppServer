@@ -67,10 +67,10 @@ public class ChatServiceImpl implements IChatService {
 
 	//Encontrar todos los chats de un user por id del user
 	@Override
-	public List<Chat> findAllChatsFromUser(String userId) {
+	public List<Chat> findAllEventChatsFromUser(String userId) {
 
 		
-		List<Chat> chats = daoChat.findAllChatsFromUser(userId);
+		List<Chat> chats = daoChat.findAllEventChatsFromUser(userId);
 		
 		System.out.println("chats desde Service: "+chats);
 		

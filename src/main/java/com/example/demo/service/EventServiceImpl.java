@@ -69,7 +69,7 @@ public class EventServiceImpl implements IEventService {
 
 	@Override
 	public List<Event> findAllEventsFromUser(String userId) {
-		return daoEvent.findAllChatsFromUser(userId);
+		return daoEvent.findAllEventsFromUser(userId);
 	}
 
 }

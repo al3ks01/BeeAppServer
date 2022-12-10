@@ -57,7 +57,7 @@ public class WebSocketController {
         chatService.update(chat);
         
         
-        simpMessagingTemplate.convertAndSendToUser(String.valueOf(message.getSenderId()), "/msg", message);
-        simpMessagingTemplate.convertAndSendToUser(String.valueOf(message.getReceiverId()), "/msg", message);
+        simpMessagingTemplate.convertAndSendToUser(message.getSenderId(), "/msg", message);
+        simpMessagingTemplate.convertAndSendToUser(message.getReceiverId(), "/msg", message);
     }
 }

@@ -98,10 +98,10 @@ public class ChatControllerRest {
 	}
 	
 	//me parece que ya no lo uso
-	@GetMapping("findallchats")
-	public ResponseEntity<List<Chat>> findAllChatsFromUser(@RequestParam("userId") String userId) {
+	@GetMapping("findalleventchats")
+	public ResponseEntity<List<Chat>> findAllEventChatsFromUser(@RequestParam("userId") String userId) {
 
-		List<Chat> chats = chatService.findAllChatsFromUser(userId);
+		List<Chat> chats = chatService.findAllEventChatsFromUser(userId);
 
 		System.out.println("chats: " + chats);
 

@@ -14,5 +14,5 @@ public interface EventRepository extends MongoRepository<Event, String> {
 	List<Event> findByName(String name);
 	
 	@Query("{'attendees':?0}")
-	List<Event> findAllChatsFromUser(String userId);
+	List<Event> findAllEventsFromUser(String userId);
 }

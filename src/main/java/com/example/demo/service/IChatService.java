@@ -19,7 +19,7 @@ public interface IChatService {
 
 	public Optional<Chat> findById(String id);
 
-	public List<Chat> findAllChatsFromUser(String userId);
+	public List<Chat> findAllEventChatsFromUser(String userId);
 	
 	public  Optional<Chat> findChat(String id1, String id2);
 }
