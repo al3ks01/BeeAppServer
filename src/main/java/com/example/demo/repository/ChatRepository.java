@@ -24,6 +24,7 @@ public interface ChatRepository extends MongoRepository<Chat, String> {
 	
 	//List<Message> findByChatId(String chatId);
 	
-	@Query("{$and: [{ 'users': ?0},{ 'users': ?1}],{'type':'PRIVATE'}")
+
+	@Query("{$and: [{'type':'PRIVATE'},{ 'users': ?0},{ 'users': ?1}]}")
 	Optional<Chat> findChatByParticipants(String id1, String id2);
 }
