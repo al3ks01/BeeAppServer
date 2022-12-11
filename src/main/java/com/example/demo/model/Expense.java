@@ -1,8 +1,21 @@
 package com.example.demo.model;
 
-public class Expense {
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Expense implements Serializable {
 	
 	private String name;
-	private Double price;
+	private String price;
 
 }
