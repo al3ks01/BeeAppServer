@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
+
 import java.io.Serializable;
+
+import org.springframework.data.annotation.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Expense implements Serializable {
-	
+
+
 	private String name;
 	private String price;
 

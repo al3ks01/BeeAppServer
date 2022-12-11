@@ -22,8 +22,8 @@ import lombok.Singular;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Document(value="Event")
-public class Event implements Serializable{
+@Document(value = "Event")
+public class Event implements Serializable {
 	@Id
 	@EqualsAndHashCode.Include
 	private String id;
@@ -33,15 +33,8 @@ public class Event implements Serializable{
 	private Set<String> attendees;
 	private String date;
 	private String time;
-	
-	//En que momento pones location y address??
-	//private String address;
 	private String location;
-
-	
 	private EventType type;
-	
 	private String chatId;
-	
 	private List<Expense> expenses;
 }
