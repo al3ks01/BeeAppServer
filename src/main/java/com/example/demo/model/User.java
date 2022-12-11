@@ -23,39 +23,24 @@ import lombok.Singular;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Document(value="User")
-public class User implements Serializable{
+@Document(value = "User")
+public class User implements Serializable {
 
 	@EqualsAndHashCode.Include
 	@Id
 	private String id;
-
-	//@Column(length = 30)
 	private String username;
-	//@Column(length = 60)
 	private String email;
-	//@Column(length = 30)
 	private String password;
-
-	// longitud máxima de un teléfono con prefijo de 3 dígitos
-	//@Column(length = 12)
-	private String phone;
-
-	//@Column(columnDefinition="MEDIUMBLOB")
-	//@Lob
 	private Byte[] picture;
-	//@Column(length = 120)
 	private String mood;
-
 	@Singular
-	//@ElementCollection
 	private Set<String> contacts;
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", phone="
-				+ phone + ", mood=" + mood + ", contacts=" + contacts + "]";
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", mood="
+				+ mood + ", contacts=" + contacts + "]";
 	}
 
-	
 }

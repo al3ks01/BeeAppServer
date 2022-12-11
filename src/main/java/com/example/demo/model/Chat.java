@@ -20,30 +20,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Document(value="Chat")
-public class Chat implements Serializable{
+@Document(value = "Chat")
+public class Chat implements Serializable {
 
 	@Id
 	private String id;
-	
 	private ChatType type;
-
 	private Set<String> users;
-	
-	private List<Message> messages=new ArrayList<>();
-	
-	
+	private List<Message> messages = new ArrayList<>();
+
 	public void addMessage(Message message) {
-		
 		messages.add(message);
 	}
-	
-	
-	public Chat(Chat chat){
+
+	public Chat(Chat chat) {
 		this.id = chat.id;
 		this.users = chat.users;
 		this.messages = chat.messages;
 		this.type = chat.type;
-		
+
 	}
 }
