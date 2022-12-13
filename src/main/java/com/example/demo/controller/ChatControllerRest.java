@@ -91,10 +91,13 @@ public class ChatControllerRest {
 	public ResponseEntity<String> deleteChat(@PathVariable String id) {
 		HttpStatus status = HttpStatus.OK;
 
-		if (!chatService.delete(id))
+		if (!chatService.delete(id)){
 			status = HttpStatus.NOT_FOUND;
+		}else {
+			System.out.println("Chat Deleted");
+		}
 
-		return new ResponseEntity<>(id.toString(), status);
+		return new ResponseEntity<>(id, status);
 	}
 	
 	//me parece que ya no lo uso
